@@ -16,9 +16,20 @@ async fn op_write_file(path: String, contents: String) -> Result<(), AnyError> {
 }
 
 #[op]
-async fn op_remove_file(path: String) -> Result<(), AnyError> {
+fn op_remove_file(path: String) -> Result<(), AnyError> {
     std::fs::remove_file(path);
     Ok(())
+}
+
+
+#[op]
+fn op_carn() {
+    println!("🦖");
+}
+
+#[op]
+fn op_herb() {
+    println!("🦕");
 }
 
 async fn run_js(file_path: &str) -> Result<(), AnyError> {
@@ -28,6 +39,8 @@ async fn run_js(file_path: &str) -> Result<(), AnyError> {
              op_read_file::decl(),
              op_write_file::decl(),
              op_remove_file::decl(),
+             op_carn::decl(),
+             op_herb::decl(),
         ])
         .build();
     let mut js_runtime = deno_core::JsRuntime::new(deno_core::RuntimeOptions {

@@ -23,8 +23,17 @@
           return core.opAsync("op_write_file", path, contents);
       },
       removeFile: (path) => {
-          return core.opAsync("op_remove_file", path);
+          return core.opSync("op_remove_file", path);
+      },
+  };
+  globalThis.dino = {
+      carn: () => {
+          core.opSync("op_carn");
+      },
+      herb: () => {
+          core.opSync("op_herb");
       },
   };
 
 })(globalThis);
+

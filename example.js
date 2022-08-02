@@ -1,3 +1,6 @@
+dino.carn();
+dino.herb();
+
 console.log("Hello", "runjs!");
 console.error("Boom!");
 
